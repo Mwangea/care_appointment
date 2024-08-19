@@ -1,9 +1,18 @@
+"use client"
+import { useEffect } from 'react';
 import PatientForm from "@/components/forms/PatientForm";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Home() {
+  useEffect(() => {
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      const currentYear = new Date().getFullYear();
+      yearElement.textContent = currentYear.toString();
+    }
+  }, []);
+
   return (
     <div className="flex h-screen max-h-screen">
       {/*--- TODO: OTP VERIFICATION | PasskeyModal  ---*/}
@@ -19,7 +28,7 @@ export default function Home() {
           <PatientForm />
           <div className="text-14-regular mt-20 flex justify-between">
             <p className="justify-items-end text-dark-600 xl:text-left">
-              © 2024 care plus
+              © <span id="year"></span> care plus
             </p>
             <Link href="/?admin=true" className="text-green-500">
               Admin
