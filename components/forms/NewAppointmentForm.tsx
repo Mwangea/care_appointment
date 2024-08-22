@@ -131,10 +131,10 @@ const NewAppointmentForm = ({ userId, patientId, type, appointment, setOpen}:{
   return (
     <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex-1">
-        <section className=" space-y-2">
+        {type === "create" && <section className=" space-y-2">
             <h1 className="header">New Appointment</h1>
             <p className="text-dark-700">Request New Appointment in 10 seconds.</p>
-        </section>
+        </section> }
 
         {type !== "cancel" && (
             <>
